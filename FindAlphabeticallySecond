@@ -2,8 +2,7 @@ import java.util.Scanner;
 
 public class FindAlphabeticallySecond {
 
-    public static void main(String[] args) 
-    {
+    public static void main(String[] args) {
         Scanner scan;
         String firstInput;
         String secondInput;
@@ -16,63 +15,48 @@ public class FindAlphabeticallySecond {
         System.out.print( " Enter strings (exit to stop): " );
         firstInput = scan.next();
 
-        if (!firstInput.equalsIgnoreCase( "exit" ))
-        {
+        if (!firstInput.equalsIgnoreCase( "exit" )){
             secondInput = scan.next();
-            if (!secondInput.equalsIgnoreCase( "exit" ))
-            {
-                if ( firstInput.compareTo(secondInput)<0 )
-                {
+            if (!secondInput.equalsIgnoreCase( "exit" )){
+                if ( firstInput.compareTo(secondInput)<0 ){
                     first = firstInput;
                     second = secondInput;
                 }
-                else if ( secondInput.compareTo(firstInput)<0 )
-                {
+                else if ( secondInput.compareTo(firstInput)<0 ){
                     first = secondInput;
                     second = firstInput;
                 }
-                else 
-                {
+                else {
                     first = firstInput;
                     second = " ";
                 }
                 word =" ";
-                while( !word.equalsIgnoreCase( "exit" ))
-                {
-                word = scan.next();
-                if (!word.equalsIgnoreCase( "exit" ))
-                {
-                    if ( word.compareTo(first)<0 )
-                    {
-                    second = first;
-                    first = word;
-                    }
-                    else if ( word.compareTo( first)>0 && word.compareTo(second)<0)
-                    {
-                    second = word;
-                    }
-                    
+                while( !word.equalsIgnoreCase( "exit" )){
+                    word = scan.next();
+                    if (!word.equalsIgnoreCase( "exit" )){
+                        if ( word.compareTo(first)<0 ){
+                            second = first;
+                            first = word;
+                        }
+                        else if ( word.compareTo( first)>0 && word.compareTo(second)<0){
+                            second = word;
+                        } 
                 }
                 }
                 scan.close();
-                if ( firstInput.equalsIgnoreCase(secondInput) || firstInput.equalsIgnoreCase(word)) 
-                {
+                if ( firstInput.equalsIgnoreCase(secondInput) || firstInput.equalsIgnoreCase(word)) {
                     System.out.println( "Not enough input data..." );
                 }
-                else
-                {
+                else{
                     System.out.printf( " String that comes second alphabetically: %s",second );
                 }
             }
-            else
-            {
+            else{
                 System.out.println( "Not enough input data..." );
             }
         }
-        else 
-        {
+        else {
             System.out.println( "Not enough input data..." );
-        }
-       
+        }  
     }
 }
