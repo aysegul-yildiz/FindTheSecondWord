@@ -1,0 +1,78 @@
+import java.util.Scanner;
+
+public class FindAlphabeticallySecond {
+
+    public static void main(String[] args) 
+    {
+        Scanner scan;
+        String firstInput;
+        String secondInput;
+        String first;
+        String second;
+        String word;
+       
+        scan = new Scanner(System.in);
+
+        System.out.print( " Enter strings (exit to stop): " );
+        firstInput = scan.next();
+
+        if (!firstInput.equalsIgnoreCase( "exit" ))
+        {
+            secondInput = scan.next();
+            if (!secondInput.equalsIgnoreCase( "exit" ))
+            {
+                if ( firstInput.compareTo(secondInput)<0 )
+                {
+                    first = firstInput;
+                    second = secondInput;
+                }
+                else if ( secondInput.compareTo(firstInput)<0 )
+                {
+                    first = secondInput;
+                    second = firstInput;
+                }
+                else 
+                {
+                    first = firstInput;
+                    second = " ";
+                }
+                word =" ";
+                while( !word.equalsIgnoreCase( "exit" ))
+                {
+                word = scan.next();
+                if (!word.equalsIgnoreCase( "exit" ))
+                {
+                    if ( word.compareTo(first)<0 )
+                    {
+                    second = first;
+                    first = word;
+                    }
+                    else if ( word.compareTo( first)>0 && word.compareTo(second)<0)
+                    {
+                    second = word;
+                    }
+                    
+                }
+                }
+                scan.close();
+                if ( firstInput.equalsIgnoreCase(secondInput) || firstInput.equalsIgnoreCase(word)) 
+                {
+                    System.out.println( "Not enough input data..." );
+                }
+                else
+                {
+                    System.out.printf( " String that comes second alphabetically: %s",second );
+                }
+            }
+            else
+            {
+                System.out.println( "Not enough input data..." );
+            }
+        }
+        else 
+        {
+            System.out.println( "Not enough input data..." );
+        }
+       
+    }
+}
